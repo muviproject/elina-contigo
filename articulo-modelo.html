@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anatomía de un artículo Elina Contigo — Modelo editorial</title>
+<meta name="description" content="Artículo modelo de Elina Contigo: todos los elementos editoriales del medio demostrados en una sola pieza.">
+<style>
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('assets/fonts/fraunces-latin.woff2') format('woff2');
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('assets/fonts/inter-latin.woff2') format('woff2');
+    font-weight: 400 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --noche: #0c1424;
+    --noche-2: #111c33;
+    --noche-3: #0a1120;
+    --crema: #f4edde;
+    --crema-suave: rgba(244, 237, 222, 0.72);
+    --crema-tenue: rgba(244, 237, 222, 0.45);
+    --dorado: #c9a25e;
+    --dorado-claro: #e2c084;
+    --linea: rgba(201, 162, 94, 0.28);
+    --coral: #e0785f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--noche);
+    color: var(--crema);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(1100px 520px at 50% -8%, rgba(201,162,94,0.10), transparent 62%),
+      radial-gradient(700px 600px at 8% 100%, rgba(38,64,110,0.30), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .wrap { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 0 28px; }
+  .wrap-ancho { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+  /* Barra superior */
+  header.top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 26px 0; border-bottom: 1px solid var(--linea);
+  }
+  .marca {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500; font-size: 20px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--crema); text-decoration: none;
+  }
+  .marca em { font-style: normal; color: var(--dorado); }
+  .volver {
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--crema-tenue); text-decoration: none;
+    border: 1px solid var(--linea); border-radius: 999px; padding: 9px 18px;
+    transition: color 0.25s, border-color 0.25s;
+  }
+  .volver:hover { color: var(--dorado-claro); border-color: var(--dorado); }
+
+  /* Apertura del artículo */
+  .kicker {
+    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--dorado); margin: 72px 0 22px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .kicker::after { content: ""; flex: 1; height: 1px; background: var(--linea); }
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(36px, 5.6vw, 58px);
+    line-height: 1.1; letter-spacing: -0.01em;
+    margin-bottom: 22px;
+  }
+  h1 .cursiva { font-style: italic; font-weight: 300; color: var(--dorado-claro); }
+  .bajada {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 300;
+    font-size: clamp(18px, 2.4vw, 22px); line-height: 1.6;
+    color: var(--crema-suave); margin-bottom: 30px;
+  }
+  .byline {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    padding: 20px 0; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea);
+    margin-bottom: 44px; font-size: 13.5px; color: var(--crema-tenue);
+  }
+  .byline .autor { color: var(--crema); font-weight: 600; }
+  .byline .rol { color: var(--dorado-claro); }
+  .byline .sep { opacity: 0.5; }
+
+  /* Lo esencial */
+  .esencial {
+    border: 1px solid var(--linea); border-left: 3px solid var(--dorado);
+    background: rgba(201,162,94,0.06);
+    padding: 26px 30px; margin-bottom: 48px; border-radius: 0 6px 6px 0;
+  }
+  .esencial .etiqueta {
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--dorado); margin-bottom: 14px;
+  }
+  .esencial ul { list-style: none; }
+  .esencial li {
+    font-size: 15px; color: var(--crema-suave); margin-bottom: 10px; padding-left: 26px;
+    position: relative; line-height: 1.65;
+  }
+  .esencial li:last-child { margin-bottom: 0; }
+  .esencial li::before {
+    content: "—"; position: absolute; left: 0; color: var(--dorado);
+  }
+
+  /* Cuerpo */
+  .cuerpo p { font-size: 17px; color: var(--crema-suave); margin-bottom: 26px; font-weight: 300; }
+  .cuerpo p strong { color: var(--crema); font-weight: 600; }
+  .cuerpo > p:first-of-type::first-letter {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 64px; line-height: 0.85; float: left;
+    padding: 6px 12px 0 0; color: var(--dorado);
+  }
+  .cuerpo h2 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 400;
+    font-size: clamp(26px, 3.6vw, 34px); line-height: 1.25;
+    margin: 56px 0 22px; color: var(--crema);
+  }
+  .cuerpo h2 .num {
+    font-style: italic; color: var(--dorado); font-size: 0.7em;
+    display: block; margin-bottom: 8px; letter-spacing: 0.08em;
+  }
+  .cuerpo ul.lista, .cuerpo ol.lista { margin: 0 0 28px 4px; }
+  .cuerpo ul.lista li, .cuerpo ol.lista li {
+    font-size: 16.5px; color: var(--crema-suave); margin-bottom: 12px;
+    padding-left: 28px; position: relative; font-weight: 300; line-height: 1.65;
+  }
+  .cuerpo ul.lista li::before {
+    content: ""; position: absolute; left: 2px; top: 11px;
+    width: 7px; height: 7px; border-radius: 50%; background: var(--dorado);
+  }
+  .cuerpo ol.lista { counter-reset: item; list-style: none; }
+  .cuerpo ol.lista li { counter-increment: item; }
+  .cuerpo ol.lista li::before {
+    content: counter(item, decimal-leading-zero);
+    position: absolute; left: 0; top: 2px;
+    font-family: 'Fraunces', Georgia, serif; font-style: italic;
+    font-size: 14px; color: var(--dorado); background: none;
+    width: auto; height: auto; border-radius: 0;
+  }
+
+  /* Cita destacada */
+  .pullquote {
+    margin: 52px 0; padding: 10px 0 10px 34px;
+    border-left: 2px solid var(--coral);
+  }
+  .pullquote blockquote {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-style: italic;
+    font-size: clamp(22px, 3.2vw, 30px); line-height: 1.45; color: var(--crema);
+    margin-bottom: 14px;
+  }
+  .pullquote .fuente {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dorado);
+  }
+
+  /* Dato destacado */
+  .stat {
+    text-align: center; margin: 56px 0; padding: 44px 20px;
+    border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea);
+  }
+  .stat .cifra {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 300;
+    font-size: clamp(54px, 9vw, 96px); line-height: 1; color: var(--dorado-claro);
+  }
+  .stat .leyenda { font-size: 14px; color: var(--crema-tenue); margin-top: 12px; letter-spacing: 0.04em; }
+
+  /* Recuadro lateral */
+  .sidebar {
+    background: var(--noche-2); border: 1px solid var(--linea);
+    border-radius: 6px; padding: 30px 32px; margin: 48px 0;
+  }
+  .sidebar .etiqueta {
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--coral); margin-bottom: 14px;
+  }
+  .sidebar h3 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 500;
+    font-size: 21px; margin-bottom: 12px; color: var(--crema);
+  }
+  .sidebar p { font-size: 15px; color: var(--crema-suave); font-weight: 300; margin-bottom: 0; }
+  .sidebar p + p { margin-top: 12px; }
+
+  /* Línea de tiempo */
+  .timeline { margin: 48px 0; padding-left: 6px; }
+  .timeline .paso {
+    position: relative; padding: 0 0 34px 44px;
+    border-left: 1px solid var(--linea); margin-left: 10px;
+  }
+  .timeline .paso:last-child { padding-bottom: 4px; }
+  .timeline .paso::before {
+    content: ""; position: absolute; left: -6px; top: 6px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--noche); border: 2px solid var(--dorado);
+  }
+  .timeline .fase {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--dorado); margin-bottom: 6px;
+  }
+  .timeline h4 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 500;
+    font-size: 19px; color: var(--crema); margin-bottom: 6px;
+  }
+  .timeline p { font-size: 15px; color: var(--crema-suave); font-weight: 300; margin-bottom: 0; }
+
+  /* Diálogo de entrevista */
+  .dialogo { margin: 48px 0; }
+  .dialogo .turno { margin-bottom: 26px; }
+  .dialogo .quien {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .dialogo .quien.elina { color: var(--dorado); }
+  .dialogo .quien.invitado { color: var(--coral); }
+  .dialogo .texto {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 300;
+    font-size: 18px; line-height: 1.65; color: var(--crema-suave);
+    padding-left: 22px; border-left: 1px solid var(--linea);
+  }
+
+  /* Foto placeholder */
+  figure.foto { margin: 52px 0; }
+  .foto .marco {
+    aspect-ratio: 16 / 9; border-radius: 6px;
+    border: 1px dashed rgba(201,162,94,0.5);
+    background:
+      radial-gradient(600px 300px at 50% 20%, rgba(201,162,94,0.10), transparent 65%),
+      var(--noche-2);
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    padding: 30px;
+  }
+  .foto .marco span {
+    font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--crema-tenue);
+  }
+  .foto figcaption {
+    font-size: 13px; color: var(--crema-tenue); margin-top: 12px; line-height: 1.6;
+  }
+  .foto figcaption .credito { color: var(--dorado-claro); }
+
+  /* Qué sigue */
+  .que-sigue {
+    margin: 56px 0; padding: 34px 36px; border-radius: 6px;
+    background: linear-gradient(135deg, rgba(201,162,94,0.10), rgba(224,120,95,0.05));
+    border: 1px solid var(--linea);
+  }
+  .que-sigue .etiqueta {
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--dorado); margin-bottom: 14px;
+  }
+  .que-sigue p { font-size: 16px; color: var(--crema-suave); font-weight: 300; margin-bottom: 0; }
+
+  /* Lectura relacionada */
+  .relacionada { margin: 64px 0 20px; }
+  .relacionada h3 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 400;
+    font-size: 26px; margin-bottom: 8px; color: var(--crema); text-align: center;
+  }
+  .relacionada .sub { text-align: center; font-size: 14px; color: var(--crema-tenue); margin-bottom: 30px; }
+  .relacionada .tarjetas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .relacionada a.tarjeta {
+    display: block; text-decoration: none; color: inherit;
+    border: 1px solid var(--linea); border-radius: 6px; padding: 26px 24px;
+    background: var(--noche-3); transition: border-color 0.25s, transform 0.25s;
+  }
+  .relacionada a.tarjeta:hover { border-color: var(--dorado); transform: translateY(-3px); }
+  .relacionada .cat {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--coral); margin-bottom: 12px; display: block;
+  }
+  .relacionada .tit {
+    font-family: 'Fraunces', Georgia, serif; font-size: 17px; line-height: 1.4; color: var(--crema);
+  }
+
+  /* Tags */
+  .tags { display: flex; gap: 10px; flex-wrap: wrap; margin: 44px 0; }
+  .tags span {
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--crema-suave); border: 1px solid var(--linea);
+    border-radius: 999px; padding: 8px 18px;
+  }
+
+  /* Bio autora */
+  .bio-autora {
+    display: flex; gap: 24px; align-items: flex-start;
+    border-top: 1px solid var(--linea); padding-top: 36px; margin-bottom: 50px;
+  }
+  .bio-autora .retrato {
+    flex: none; width: 76px; height: 76px; border-radius: 50%;
+    border: 1px solid var(--dorado);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-style: italic;
+    color: var(--dorado-claro);
+    background: radial-gradient(circle at 50% 35%, rgba(201,162,94,0.16), transparent 70%);
+  }
+  .bio-autora .nombre {
+    font-family: 'Fraunces', Georgia, serif; font-size: 19px; color: var(--crema); margin-bottom: 4px;
+  }
+  .bio-autora .cargo {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--dorado); margin-bottom: 10px;
+  }
+  .bio-autora p { font-size: 14.5px; color: var(--crema-suave); font-weight: 300; line-height: 1.7; }
+
+  /* Compartir */
+  .compartir {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    padding: 26px 0; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea);
+    margin-bottom: 60px;
+  }
+  .compartir .etiqueta {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--crema-tenue); margin-right: 8px;
+  }
+  .compartir a {
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--crema-suave); text-decoration: none;
+    border: 1px solid var(--linea); border-radius: 999px; padding: 9px 20px;
+    transition: border-color 0.25s, color 0.25s;
+  }
+  .compartir a:hover { border-color: var(--dorado); color: var(--dorado-claro); }
+
+  footer {
+    border-top: 1px solid var(--linea); margin-top: 40px; padding: 34px 0 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;
+    font-size: 12.5px; color: var(--crema-tenue); letter-spacing: 0.06em;
+  }
+  footer .marca { font-size: 15px; }
+
+  @media (max-width: 640px) {
+    .relacionada .tarjetas { grid-template-columns: 1fr; }
+    .bio-autora { flex-direction: column; }
+    .kicker { margin-top: 52px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap-ancho">
+  <header class="top">
+    <a class="marca" href="index.html">Elina <em>Contigo</em></a>
+    <a class="volver" href="index.html">← Volver</a>
+  </header>
+</div>
+
+<div class="wrap">
+  <p class="kicker">Guía editorial · Plantilla</p>
+  <h1>Anatomía de un artículo <span class="cursiva">Elina Contigo</span></h1>
+  <p class="bajada">Esta pieza es el modelo de referencia del medio: cada elemento editorial —del antetítulo al cierre— demostrado en su lugar, para que ningún artículo vuelva a ser un bloque de texto.</p>
+
+  <div class="byline">
+    <span class="autor">Elina Villafañe</span>
+    <span class="sep">·</span>
+    <span class="rol">Directora editorial</span>
+    <span class="sep">·</span>
+    <span>30 de septiembre de 2026</span>
+    <span class="sep">·</span>
+    <span>6 min de lectura</span>
+  </div>
+
+  <div class="esencial">
+    <p class="etiqueta">Lo esencial</p>
+    <ul>
+      <li>Un artículo Elina Contigo usa más de 20 elementos editoriales: apertura, cuerpo, interrupciones visuales, contexto y cierre.</li>
+      <li>Cada elemento tiene una función: orientar, dar aire, probar o invitar a seguir leyendo.</li>
+      <li>Esta plantilla es la referencia viva: todo artículo nuevo parte de aquí.</li>
+    </ul>
+  </div>
+
+  <div class="cuerpo">
+    <p>Todo artículo empieza antes del primer párrafo. El <strong>antetítulo</strong> —esa línea pequeña sobre el titular— le dice al lector dónde está parado: la sección, el formato, la promesa. El <strong>titular</strong> hace el trabajo emocional; la <strong>bajada</strong>, el trabajo informativo. Y la <strong>firma</strong> pone el nombre propio: en este medio, las historias tienen autora.</p>
+
+    <p>La <strong>letra capitular</strong> que abre este texto no es decoración: es una puerta. Marca el umbral entre la apertura y el cuerpo, y le da al primer párrafo el peso de una entradilla. Úsala siempre en el primer párrafo de cada artículo.</p>
+
+    <h2><span class="num">— 01</span>El cuerpo: intertítulos y ritmo</h2>
+
+    <p>El cuerpo se escribe en bloques de tres a cuatro párrafos, nunca más. Cada bloque lo corona un <strong>intertítulo</strong> que funciona como un titular pequeño: adelanta, intriga, ordena. El lector que escanea la página debe entender la historia solo leyendo los intertítulos.</p>
+
+    <p>Las listas son ritmo visual. Cuando haya datos, pasos o ingredientes de una historia, no los escondas en un párrafo: dales aire.</p>
+
+    <ul class="lista">
+      <li><strong>Párrafos cortos:</strong> una idea por párrafo, interlineado generoso.</li>
+      <li><strong>Negritas con criterio:</strong> solo para el dato o nombre que el ojo debe retener.</li>
+      <li><strong>Una sola columna:</strong> el texto respira mejor en 65–75 caracteres por línea.</li>
+    </ul>
+
+    <div class="pullquote">
+      <blockquote>“Un artículo sin aire es un muro: el lector no entra. Los elementos editoriales son las puertas y ventanas.”</blockquote>
+      <p class="fuente">Elina Villafañe · Criterio editorial del medio</p>
+    </div>
+
+    <p>La <strong>cita destacada</strong> —el pull quote— cumple dos funciones: rescata la frase más potente de la entrevista y le da al lector apurado una razón para quedarse. Siempre lleva atribución: quién lo dijo y en qué contexto.</p>
+
+    <div class="stat">
+      <div class="cifra">3–4</div>
+      <p class="leyenda">párrafos por bloque: el ritmo ideal entre intertítulos</p>
+    </div>
+
+    <h2><span class="num">— 02</span>Las interrupciones: datos y contexto</h2>
+
+    <p>El <strong>dato destacado</strong> convierte una cifra en un momento visual. Úsalo para el número que resume la historia: años de trayectoria, personas alcanzadas, el dato que nadie olvida. Una cifra enorme vale más que un párrafo explicándola.</p>
+
+    <div class="sidebar">
+      <p class="etiqueta">Recuadro · Contexto</p>
+      <h3>El sidebar no interrumpe: profundiza</h3>
+      <p>El recuadro lateral lleva lo que enriquece sin cortar el flujo: contexto histórico, cronología breve, glosario de términos o la ficha del entrevistado. El lector lo lee cuando quiere; el que no, sigue de largo sin perderse.</p>
+      <p>Regla: máximo un sidebar por artículo, y nunca con información esencial para entender la historia principal.</p>
+    </div>
+
+    <h2><span class="num">— 03</span>Cómo nace un artículo</h2>
+
+    <p>Cada pieza de Elina Contigo recorre el mismo pipeline: del video a la página, con edición editorial en cada paso. Esta línea de tiempo puede usarse dentro de los artículos para mostrar procesos.</p>
+
+    <div class="timeline">
+      <div class="paso">
+        <p class="fase">Fase 1</p>
+        <h4>Video / entrevista</h4>
+        <p>La conversación original: el material en bruto donde nace todo.</p>
+      </div>
+      <div class="paso">
+        <p class="fase">Fase 2</p>
+        <h4>Transcripción</h4>
+        <p>El audio se convierte en texto palabra por palabra, sin editar.</p>
+      </div>
+      <div class="paso">
+        <p class="fase">Fase 3</p>
+        <h4>Edición editorial</h4>
+        <p>Se selecciona, se ordena y se da estructura narrativa al material.</p>
+      </div>
+      <div class="paso">
+        <p class="fase">Fase 4</p>
+        <h4>Artículo</h4>
+        <p>Se viste con todos los elementos de esta plantilla: citas, datos, contexto.</p>
+      </div>
+      <div class="paso">
+        <p class="fase">Fase 5</p>
+        <h4>Publicación y distribución</h4>
+        <p>SEO, newsletter y redes: la historia sale a buscar a su lector.</p>
+      </div>
+    </div>
+
+    <h2><span class="num">— 04</span>La entrevista: formato diálogo</h2>
+
+    <p>Cuando el corazón del artículo es una conversación, el <strong>formato diálogo</strong> la presenta con claridad escénica: quién habla, en qué tono, sin comillas perdidas en el párrafo.</p>
+
+    <div class="dialogo">
+      <div class="turno">
+        <p class="quien elina">Elina — pregunta</p>
+        <p class="texto">¿En qué momento supiste que esta historia tenía que contarse?</p>
+      </div>
+      <div class="turno">
+        <p class="quien invitado">Entrevistado — respuesta</p>
+        <p class="texto">Cuando entendí que no era solo mi historia. Era la de todos los que llegaron con una maleta y una idea, y construyeron una vida desde cero.</p>
+      </div>
+    </div>
+
+    <figure class="foto">
+      <div class="marco"><span>Espacio para fotografía · 16:9</span></div>
+      <figcaption>Pie de foto: describe lo que se ve en la imagen en una línea. <span class="credito">Foto: Nombre del fotógrafo / Elina Contigo.</span></figcaption>
+    </figure>
+
+    <p>Toda imagen lleva <strong>pie de foto y crédito</strong>: qué se ve, y de quién es. Sin excepciones. Es criterio editorial y es respeto por el trabajo visual.</p>
+
+    <ol class="lista">
+      <li><strong>Apertura:</strong> antetítulo, titular, bajada, firma y fecha.</li>
+      <li><strong>Orientación:</strong> recuadro "Lo esencial" con los 3 puntos clave.</li>
+      <li><strong>Cuerpo:</strong> bloques de 3–4 párrafos con intertítulos.</li>
+      <li><strong>Aire:</strong> pull quote, dato destacado, sidebar, timeline o diálogo.</li>
+      <li><strong>Cierre:</strong> qué sigue, lectura relacionada, bio y tags.</li>
+    </ol>
+
+    <div class="que-sigue">
+      <p class="etiqueta">Qué sigue</p>
+      <p>Esta plantilla vive en el repositorio del medio y se actualiza con cada aprendizaje. El próximo paso: aplicarla al primer artículo real de Elina Contigo y ajustar lo que la práctica pida.</p>
+    </div>
+  </div>
+
+  <div class="relacionada wrap-ancho" style="max-width:760px;margin-left:auto;margin-right:auto;padding:0;">
+    <h3>Lectura relacionada</h3>
+    <p class="sub">Tres piezas para seguir explorando</p>
+    <div class="tarjetas">
+      <a class="tarjeta" href="#">
+        <span class="cat">Entrevistas</span>
+        <span class="tit">Cómo preparamos una entrevista a fondo</span>
+      </a>
+      <a class="tarjeta" href="#">
+        <span class="cat">Análisis</span>
+        <span class="tit">El criterio editorial de Elina Contigo</span>
+      </a>
+      <a class="tarjeta" href="#">
+        <span class="cat">Historias</span>
+        <span class="tit">Del video al artículo: nuestro pipeline</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="tags">
+    <span>Guía editorial</span>
+    <span>Plantilla</span>
+    <span>Diseño</span>
+  </div>
+
+  <div class="bio-autora">
+    <div class="retrato">E</div>
+    <div>
+      <p class="nombre">Elina Villafañe</p>
+      <p class="cargo">Directora editorial</p>
+      <p>Periodista, presentadora e investigadora con más de 12 años de trayectoria y más de 1500 programas. Conduce <em>América Revelada</em> y co-produce <em>Cuba Libre Hoy</em>; en Elina Contigo dirige el criterio editorial del medio.</p>
+    </div>
+  </div>
+
+  <div class="compartir">
+    <span class="etiqueta">Compartir</span>
+    <a href="#">X</a>
+    <a href="#">Facebook</a>
+    <a href="#">WhatsApp</a>
+    <a href="#">Copiar enlace</a>
+  </div>
+</div>
+
+<div class="wrap-ancho">
+  <footer>
+    <div class="marca">Elina <em>Contigo</em></div>
+    <div>© 2026 Elina Contigo · Plantilla editorial v1.0</div>
+  </footer>
+</div>
+
+</body>
+</html>
