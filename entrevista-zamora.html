@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rey Zamora y María Elena: de Pedro Pan a guardianes de la memoria cubana — Elina Contigo</title>
+<meta name="description" content="Rey Zamora y María Elena llegaron solos de Cuba en 1961 por el programa Pedro Pan. Hoy levantan un centro cultural en Miami para preservar la memoria cubana. Entrevista de Elina Villafañe.">
+<style>
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('assets/fonts/fraunces-latin.woff2') format('woff2');
+    font-weight: 300 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('assets/fonts/inter-latin.woff2') format('woff2');
+    font-weight: 400 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --noche: #0c1424;
+    --noche-2: #111c33;
+    --noche-3: #0a1120;
+    --crema: #f4edde;
+    --crema-suave: rgba(244, 237, 222, 0.72);
+    --crema-tenue: rgba(244, 237, 222, 0.45);
+    --dorado: #c9a25e;
+    --dorado-claro: #e2c084;
+    --linea: rgba(201, 162, 94, 0.28);
+    --coral: #e0785f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--noche);
+    color: var(--crema);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(1100px 520px at 50% -8%, rgba(201,162,94,0.10), transparent 62%),
+      radial-gradient(700px 600px at 8% 100%, rgba(38,64,110,0.30), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .wrap { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 0 28px; }
+  .wrap-ancho { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+  /* Barra superior */
+  header.top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 26px 0; border-bottom: 1px solid var(--linea);
+  }
+  .marca {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500; font-size: 20px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--crema); text-decoration: none;
+  }
+  .marca em { font-style: normal; color: var(--dorado); }
+  .volver {
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--crema-tenue); text-decoration: none;
+    border: 1px solid var(--linea); border-radius: 999px; padding: 9px 18px;
+    transition: color 0.25s, border-color 0.25s;
+  }
+  .volver:hover { color: var(--dorado-claro); border-color: var(--dorado); }
+
+  /* Apertura del artículo */
+  .kicker {
+    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--dorado); margin: 72px 0 22px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .kicker::after { content: ""; flex: 1; height: 1px; background: var(--linea); }
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(36px, 5.6vw, 58px);
+    line-height: 1.1; letter-spacing: -0.01em;
+    margin-bottom: 22px;
+  }
+  h1 .cursiva { font-style: italic; font-weight: 300; color: var(--dorado-claro); }
+  .bajada {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 300;
+    font-size: clamp(18px, 2.4vw, 22px); line-height: 1.6;
+    color: var(--crema-suave); margin-bottom: 30px;
+  }
+  .byline {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    padding: 20px 0; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea);
+    margin-bottom: 44px; font-size: 13.5px; color: var(--crema-tenue);
+  }
+  .byline .autor { color: var(--crema); font-weight: 600; }
+  .byline .rol { color: var(--dorado-claro); }
+  .byline .sep { opacity: 0.5; }
+
+  /* Lo esencial */
+  .esencial {
+    border: 1px solid var(--linea); border-left: 3px solid var(--dorado);
+    background: rgba(201,162,94,0.06);
+    padding: 26px 30px; margin-bottom: 48px; border-radius: 0 6px 6px 0;
+  }
+  .esencial .etiqueta {
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--dorado); margin-bottom: 14px;
+  }
+  .esencial ul { list-style: none; }
+  .esencial li {
+    font-size: 15px; color: var(--crema-suave); margin-bottom: 10px; padding-left: 26px;
+    position: relative; line-height: 1.65;
+  }
+  .esencial li:last-child { margin-bottom: 0; }
+  .esencial li::before {
+    content: "—"; position: absolute; left: 0; color: var(--dorado);
+  }
+
+  /* Cuerpo */
+  .cuerpo p { font-size: 17px; color: var(--crema-suave); margin-bottom: 26px; font-weight: 300; }
+  .cuerpo p strong { color: var(--crema); font-weight: 600; }
+  .cuerpo > p:first-of-type::first-letter {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 64px; line-height: 0.85; float: left;
+    padding: 6px 12px 0 0; color: var(--dorado);
+  }
+  .cuerpo h2 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 400;
+    font-size: clamp(26px, 3.6vw, 34px); line-height: 1.25;
+    margin: 56px 0 22px; color: var(--crema);
+  }
+  .cuerpo h2 .num {
+    font-style: italic; color: var(--dorado); font-size: 0.7em;
+    display: block; margin-bottom: 8px; letter-spacing: 0.08em;
+  }
+  .cuerpo ul.lista, .cuerpo ol.lista { margin: 0 0 28px 4px; }
+  .cuerpo ul.lista li, .cuerpo ol.lista li {
+    font-size: 16.5px; color: var(--crema-suave); margin-bottom: 12px;
+    padding-left: 28px; position: relative; font-weight: 300; line-height: 1.65;
+  }
+  .cuerpo ul.lista li::before {
+    content: ""; position: absolute; left: 2px; top: 11px;
+    width: 7px; height: 7px; border-radius: 50%; background: var(--dorado);
+  }
+  .cuerpo ol.lista { counter-reset: item; list-style: none; }
+  .cuerpo ol.lista li { counter-increment: item; }
+  .cuerpo ol.lista li::before {
+    content: counter(item, decimal-leading-zero);
+    position: absolute; left: 0; top: 2px;
+    font-family: 'Fraunces', Georgia, serif; font-style: italic;
+    font-size: 14px; color: var(--dorado); background: none;
+    width: auto; height: auto; border-radius: 0;
+  }
+
+  /* Cita destacada */
+  .pullquote {
+    margin: 52px 0; padding: 10px 0 10px 34px;
+    border-left: 2px solid var(--coral);
+  }
+  .pullquote blockquote {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-style: italic;
+    font-size: clamp(22px, 3.2vw, 30px); line-height: 1.45; color: var(--crema);
+    margin-bottom: 14px;
+  }
+  .pullquote .fuente {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dorado);
+  }
+
+  /* Dato destacado */
+  .stat {
+    text-align: center; margin: 56px 0; padding: 44px 20px;
+    border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea);
+  }
+  .stat .cifra {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 300;
+    font-size: clamp(54px, 9vw, 96px); line-height: 1; color: var(--dorado-claro);
+  }
+  .stat .leyenda { font-size: 14px; color: var(--crema-tenue); margin-top: 12px; letter-spacing: 0.04em; }
+
+  /* Recuadro lateral */
+  .sidebar {
+    background: var(--noche-2); border: 1px solid var(--linea);
+    border-radius: 6px; padding: 30px 32px; margin: 48px 0;
+  }
+  .sidebar .etiqueta {
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--coral); margin-bottom: 14px;
+  }
+  .sidebar h3 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 500;
+    font-size: 21px; margin-bottom: 12px; color: var(--crema);
+  }
+  .sidebar p { font-size: 15px; color: var(--crema-suave); font-weight: 300; margin-bottom: 0; }
+  .sidebar p + p { margin-top: 12px; }
+
+  /* Línea de tiempo */
+  .timeline { margin: 48px 0; padding-left: 6px; }
+  .timeline .paso {
+    position: relative; padding: 0 0 34px 44px;
+    border-left: 1px solid var(--linea); margin-left: 10px;
+  }
+  .timeline .paso:last-child { padding-bottom: 4px; }
+  .timeline .paso::before {
+    content: ""; position: absolute; left: -6px; top: 6px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--noche); border: 2px solid var(--dorado);
+  }
+  .timeline .fase {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--dorado); margin-bottom: 6px;
+  }
+  .timeline h4 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 500;
+    font-size: 19px; color: var(--crema); margin-bottom: 6px;
+  }
+  .timeline p { font-size: 15px; color: var(--crema-suave); font-weight: 300; margin-bottom: 0; }
+
+  /* Diálogo de entrevista */
+  .dialogo { margin: 48px 0; }
+  .dialogo .turno { margin-bottom: 26px; }
+  .dialogo .quien {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .dialogo .quien.elina { color: var(--dorado); }
+  .dialogo .quien.invitado { color: var(--coral); }
+  .dialogo .texto {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 300;
+    font-size: 18px; line-height: 1.65; color: var(--crema-suave);
+    padding-left: 22px; border-left: 1px solid var(--linea);
+  }
+
+  /* Foto placeholder */
+  figure.foto { margin: 52px 0; }
+  .foto .marco {
+    aspect-ratio: 16 / 9; border-radius: 6px;
+    border: 1px dashed rgba(201,162,94,0.5);
+    background:
+      radial-gradient(600px 300px at 50% 20%, rgba(201,162,94,0.10), transparent 65%),
+      var(--noche-2);
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    padding: 30px;
+  }
+  .foto .marco span {
+    font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--crema-tenue);
+  }
+  .foto figcaption {
+    font-size: 13px; color: var(--crema-tenue); margin-top: 12px; line-height: 1.6;
+  }
+  .foto figcaption .credito { color: var(--dorado-claro); }
+
+  /* Qué sigue */
+  .que-sigue {
+    margin: 56px 0; padding: 34px 36px; border-radius: 6px;
+    background: linear-gradient(135deg, rgba(201,162,94,0.10), rgba(224,120,95,0.05));
+    border: 1px solid var(--linea);
+  }
+  .que-sigue .etiqueta {
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--dorado); margin-bottom: 14px;
+  }
+  .que-sigue p { font-size: 16px; color: var(--crema-suave); font-weight: 300; margin-bottom: 0; }
+
+  /* Lectura relacionada */
+  .relacionada { margin: 64px 0 20px; }
+  .relacionada h3 {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 400;
+    font-size: 26px; margin-bottom: 8px; color: var(--crema); text-align: center;
+  }
+  .relacionada .sub { text-align: center; font-size: 14px; color: var(--crema-tenue); margin-bottom: 30px; }
+  .relacionada .tarjetas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .relacionada a.tarjeta {
+    display: block; text-decoration: none; color: inherit;
+    border: 1px solid var(--linea); border-radius: 6px; padding: 26px 24px;
+    background: var(--noche-3); transition: border-color 0.25s, transform 0.25s;
+  }
+  .relacionada a.tarjeta:hover { border-color: var(--dorado); transform: translateY(-3px); }
+  .relacionada .cat {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--coral); margin-bottom: 12px; display: block;
+  }
+  .relacionada .tit {
+    font-family: 'Fraunces', Georgia, serif; font-size: 17px; line-height: 1.4; color: var(--crema);
+  }
+
+  /* Tags */
+  .tags { display: flex; gap: 10px; flex-wrap: wrap; margin: 44px 0; }
+  .tags span {
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--crema-suave); border: 1px solid var(--linea);
+    border-radius: 999px; padding: 8px 18px;
+  }
+
+  /* Bio autora */
+  .bio-autora {
+    display: flex; gap: 24px; align-items: flex-start;
+    border-top: 1px solid var(--linea); padding-top: 36px; margin-bottom: 50px;
+  }
+  .bio-autora .retrato {
+    flex: none; width: 76px; height: 76px; border-radius: 50%;
+    border: 1px solid var(--dorado);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-style: italic;
+    color: var(--dorado-claro);
+    background: radial-gradient(circle at 50% 35%, rgba(201,162,94,0.16), transparent 70%);
+  }
+  .bio-autora .nombre {
+    font-family: 'Fraunces', Georgia, serif; font-size: 19px; color: var(--crema); margin-bottom: 4px;
+  }
+  .bio-autora .cargo {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--dorado); margin-bottom: 10px;
+  }
+  .bio-autora p { font-size: 14.5px; color: var(--crema-suave); font-weight: 300; line-height: 1.7; }
+
+  /* Compartir */
+  .compartir {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    padding: 26px 0; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea);
+    margin-bottom: 60px;
+  }
+  .compartir .etiqueta {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--crema-tenue); margin-right: 8px;
+  }
+  .compartir a {
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--crema-suave); text-decoration: none;
+    border: 1px solid var(--linea); border-radius: 999px; padding: 9px 20px;
+    transition: border-color 0.25s, color 0.25s;
+  }
+  .compartir a:hover { border-color: var(--dorado); color: var(--dorado-claro); }
+
+  footer {
+    border-top: 1px solid var(--linea); margin-top: 40px; padding: 34px 0 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;
+    font-size: 12.5px; color: var(--crema-tenue); letter-spacing: 0.06em;
+  }
+  footer .marca { font-size: 15px; }
+
+  @media (max-width: 640px) {
+    .relacionada .tarjetas { grid-template-columns: 1fr; }
+    .bio-autora { flex-direction: column; }
+    .kicker { margin-top: 52px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap-ancho">
+  <header class="top">
+    <a class="marca" href="index.html">Elina <em>Contigo</em></a>
+    <a class="volver" href="index.html">← Volver</a>
+  </header>
+</div>
+
+<div class="wrap">
+  <p class="kicker">Historias humanas · Entrevista</p>
+  <h1>Llegaron de Cuba sin nada, a los 13 y 16 años. <span class="cursiva">Hoy custodian su memoria.</span></h1>
+  <p class="bajada">Rey Zamora y María Elena salieron solos por el programa Pedro Pan en 1961: él a Washington, ella a un rancho de Montana a veinte grados bajo cero. Más de seis décadas después, levantan en Miami un centro cultural para que la historia de Cuba no se pierda.</p>
+
+  <div class="byline">
+    <span class="autor">Elina Villafañe</span>
+    <span class="sep">·</span>
+    <span class="rol">Directora editorial</span>
+    <span class="sep">·</span>
+    <span>30 de septiembre de 2026</span>
+    <span class="sep">·</span>
+    <span>8 min de lectura</span>
+  </div>
+
+  <div class="esencial">
+    <p class="etiqueta">Lo esencial</p>
+    <ul>
+      <li>Rey Zamora (16 años) y María Elena (13) llegaron solos de Cuba en 1961 por el programa Pedro Pan, que trajo a Estados Unidos a 14.000 niños.</li>
+      <li>Él levantó un negocio de joyería y antigüedades en Washington; ella hizo carrera en la banca internacional en Miami. Se conocieron en una exposición de arte.</li>
+      <li>Desde hace más de 20 años construyen, junto al padre José Luis Menéndez, un centro cultural en la iglesia Corpus Christi: capilla barroca, más de 160 pinturas coloniales y miles de documentos históricos.</li>
+    </ul>
+  </div>
+
+  <div class="cuerpo">
+    <p>Hay lugares que se visitan y lugares que se sienten. El centro cultural que crece en los predios de la iglesia Corpus Christi, en Miami, es de los segundos: huele a cedro recién tallado, brilla en oro de 23 quilates y guarda, entre muros que todavía se están levantando, la memoria de una Cuba que ya no existe. Quienes lo levantan son dos cubanos que llegaron a este país sin nada: <strong>Rey Zamora y María Elena, dos niños del programa Pedro Pan</strong>.</p>
+
+    <p>Los entrevisté una tarde entre andamios, vitrinas y cuadros a medio colgar. Hablamos de la Cuba que dejaron, del frío de Montana, de los años de trabajo sin pausa y de la misión que los ocupa hoy: dejar un legado cultural para las futuras generaciones. Esta es su historia.</p>
+
+    <h2><span class="num">— 01</span>Los niños que se fueron solos</h2>
+
+    <p>En 1961, el programa Pedro Pan sacó de Cuba a <strong>14.000 niños</strong> —de 6 a 18 años— con visas temporales. La promesa era clara: 30 días, y de regreso a casa. Rey Zamora tenía 16 años recién cumplidos cuando subió al avión. Su historia no era la de un niño cualquiera: a los 15 ya estaba, como él dice, en la contra del régimen, en una familia de militares. Un amigo de su grupo había sido fusilado. Su padre le dijo que tenía que irse. "Día 31 estoy de regreso", le prometió. <strong>No ha regresado más.</strong></p>
+
+    <p>María Elena tenía 13. Viajó con su hermano de 15; sus padres se quedaron en Cuba. Su último recuerdo de la isla es <strong>la pecera</strong>: ese salón de cristales del aeropuerto donde los que se iban esperaban horas el avión, sin agua, mientras la familia lloraba del otro lado del vidrio. "Fue la primera vez que yo sentí a mi padre llorar", me dijo. "Es criminal aquello de la pecera."</p>
+
+    <p>Los caminos se separaron al llegar. Rey fue directo a Washington, donde lo esperaba una prima hermana y su tía Nana, que se convirtió en su segunda madre. María Elena pasó un mes en el campamento de Florida City y de ahí la mandaron a <strong>Montana: un rancho a siete millas de Canadá</strong>, con una familia americana. El día que llegaron hacía veinte grados bajo cero. No sabían inglés. Se comunicaban con un diccionario que, me contó, todavía conserva.</p>
+
+    <div class="pullquote">
+      <blockquote>"Cuando haya luna llena y tú la estés mirando, donde quiera que yo esté, yo la voy a estar mirando. Ese va a ser nuestro contacto."</blockquote>
+      <p class="fuente">Rey Zamora · A su madre, dos días antes de partir de Cuba</p>
+    </div>
+
+    <p>Dos días antes de partir, Rey salió al patio con su madre. Había luna llena. Le dijo que cada vez que la mirara, él la estaría mirando también, estuviera donde estuviera. Ese fue su pacto. Años después, ya casado, su esposa lo sabía: cuando había luna llena, él salía a buscarla.</p>
+
+    <h2><span class="num">— 02</span>Construir desde cero</h2>
+
+    <p>Pasados los 30 días de la visa, Rey entendió que no había regreso. No pudo seguir estudiando: había que trabajar. Sacaba ocho o diez libros por semana de la biblioteca pública —"con una ansia de seguir aprendiendo"— y encadenó oficios: taller de mecánica, la tienda Lord &amp; Taylor, reparación de yates en el río Potomac. A los 18 ya tenía su propio negocio. A los 20 trabajaba de sol a sol, seis días a la semana, en dos empleos a la vez, para juntar el dinero con que sacaría a sus padres de Cuba.</p>
+
+    <p>Lo logró en 1965, cuatro años después de su llegada. Cuando sus padres por fin pisaron Washington, él ya les tenía el apartamento listo. "Yo me convertí en el padre de mis padres", me dijo, porque ellos no hablaban el idioma y él los encaminó en todo. Después vino el oficio que lo marcaría: cuatro años de aprendizaje de joyería en un programa del Departamento del Trabajo, su taller propio en 1969 —llegó a darle trabajo a 72 joyerías del Distrito de Columbia—, y en 1975 la compra de una tienda de artes y antigüedades fundada por un cubano en 1949. Ahí nació el anticuario.</p>
+
+    <p>María Elena, por su lado, se reunió con sus padres al año de llegar —tuvieron que pasar por Jamaica— y la familia se instaló en New Jersey. Ella estudió de noche, entró a trabajar en un banco internacional y fue escalando: <strong>empezó de secretaria y se retiró como vicepresidenta</strong>, tras casi 20 años. Después se mudó a Miami. Y un día, en una exposición de arte, conoció a Rey.</p>
+
+    <div class="stat">
+      <div class="cifra">14.000</div>
+      <p class="leyenda">niños llegaron solos a EE.&nbsp;UU. por el programa Pedro Pan entre 1960 y 1962</p>
+    </div>
+
+    <p>El dato lo dice todo sobre la dimensión de aquella operación: catorce mil familias que tomaron la decisión más dura —mandar a sus hijos solos a otro país— para salvarlos del adoctrinamiento y la persecución. Muchos de esos niños no volvieron a ver a sus padres en años. Algunos, nunca.</p>
+
+    <h2><span class="num">— 03</span>El arte los juntó</h2>
+
+    <p>Que se conocieran en una galería no fue casualidad: el arte los venía buscando a los dos desde niños. El abuelo de Rey, veterano de la guerra de independencia de Cuba, tenía su colección de cuadros en La Habana. El niño se paraba frente a ellos, con siete u ocho años, a mirarlos. Un día el abuelo le dijo algo que le quedó grabado para siempre:</p>
+
+    <div class="pullquote">
+      <blockquote>"Nada nos pertenece, somos dueños temporales de ellas. Mientras que las tenemos, las disfrutamos, pero después van a pasar a manos de otras personas."</blockquote>
+      <p class="fuente">El abuelo de Rey Zamora · Sobre su colección de arte</p>
+    </div>
+
+    <p>De su padre aprendió otra lección: un día le puso sobre la mesa dos periódicos con versiones opuestas de la misma noticia. "Las monedas tienen dos caras y los artículos tienen lo mismo", le dijo. Que comparara, que no se guiara por uno solo. Décadas después, Rey sigue aplicando esa regla.</p>
+
+    <p>María Elena también pinta, y durante la pandemia catalogó pieza por pieza una colección de <strong>2.600 polimitas</strong> —esos caracoles de colores naturales que solo existen en Baracoa, Cuba— donada al centro cultural. Es, me aseguran, la colección más grande de polimitas en Estados Unidos.</p>
+
+    <div class="dialogo">
+      <div class="turno">
+        <p class="quien elina">Elina — pregunta</p>
+        <p class="texto">¿Y qué último recuerdo tiene de Cuba?</p>
+      </div>
+      <div class="turno">
+        <p class="quien invitado">Rey Zamora — respuesta</p>
+        <p class="texto">Dos días antes de salir para acá, mi madre y yo habíamos salido al patio, había luna llena, nunca lo olvidaré. […] ¿Ves esa luna llena que está ahí? Cuando haya luna llena y tú la estés mirando, donde quiera que yo esté, yo la voy a estar mirando. Ese va a ser nuestro contacto.</p>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <p class="etiqueta">Recuadro · Contexto</p>
+      <h3>Qué fue el programa Pedro Pan</h3>
+      <p>Entre 1960 y 1962, más de 14.000 niños cubanos llegaron solos a Estados Unidos con visas temporales gestionadas a través de la Iglesia Católica —el sacerdote que lo organizó fue el padre Walsh— y el gobierno estadounidense. Muchos padres temían que el régimen adoctrinara a sus hijos o los separara de la familia. Los niños fueron recibidos en campamentos como el de Florida City y luego reubicados con familias en todo el país, a la espera de reunirse con sus padres. Fue el éxodo infantil más grande del hemisferio occidental.</p>
+      <p><strong>Quiénes son:</strong> Rey Zamora, 81 años, anticuario con más de 50 años en el negocio de artes y antigüedades; María Elena, su esposa, exvicepresidenta de un banco internacional y pintora. Ambos llegaron por Pedro Pan en 1961.</p>
+    </div>
+    <h2><span class="num">— 04</span>La misión: que Cuba no se pierda</h2>
+
+    <p>Hace más de 20 años, unas amigas peruanas le pidieron a Rey ayuda para recaudar fondos para una capilla-museo en los predios de Corpus Christi. Él fue a conocer al párroco, el <strong>padre José Luis Menéndez</strong>, y hubo una conexión inmediata. "Se necesita un loco para reconocer a otro loco", me dijo riendo. El padre tenía un sueño sin presupuesto: una capilla y, algún día, un centro cultural. Rey puso una condición: si lo hacía, sería como se hacía 300 años atrás, sin imitaciones. "Si Dios quiere, Él proveerá."</p>
+
+    <p>Y proveyó. La capilla —<strong>Nuestra Señora de las Mercedes, patrona de las Américas</strong>— está casi terminada en estilo barroco peruano: cedro tallado a mano por artesanos de Cochabamba, Bolivia, y oro de 23 quilates en los altares. "Cuando pasan cinco o siete años, la imitación se empieza a apagar", me explicó Rey. Por eso, todo original.</p>
+
+    <p>Lo que empezó con cinco pinturas coloniales hoy son <strong>más de 160 obras</strong>, una de las colecciones más grandes de pintura colonial en la Florida. Y eso es solo una parte: la constitución original de Cuba de 1901, cartas manuscritas de José Martí, un documento de los Reyes Católicos de 1492 —tres meses antes del descubrimiento de América—, entre 6.000 y 7.000 fotografías cubanas del siglo XIX en cartón, más de 10.000 postales, casi 5.000 libros y una colección de memorabilia del tabaco valorada en unos dos millones de dólares.</p>
+
+    <figure class="foto">
+      <div class="marco"><span>Espacio para fotografía · 16:9 — Rey Zamora y María Elena en el centro cultural</span></div>
+      <figcaption>Rey Zamora y María Elena en el centro cultural de Corpus Christi, Miami, durante la entrevista. <span class="credito">Foto: Elina Contigo.</span></figcaption>
+    </figure>
+
+    <p>El proyecto ya recibió una ayuda de 400.000 dólares a través del Miami Dade College y está en proceso una donación de 250.000 de la ciudad de Miami. Pero lo esencial, me insistió Rey, lo ponen los voluntarios: la historiadora que cataloga los documentos, el artista que pinta los murales, la señora peruana que limpia la capilla. "Cada cual aporta lo que puede."</p>
+
+    <div class="pullquote">
+      <blockquote>"Yo soy dichoso que tengo dos patrias: la que me dio nacer y la que me dio crecer."</blockquote>
+      <p class="fuente">Rey Zamora · Sobre Cuba y Estados Unidos</p>
+    </div>
+
+    <p>Le pregunté qué siente hoy por Cuba, después de más de seis décadas sin volver. No dudó: él nunca regresó —"¿cómo voy a gastarme el dinero con esos sinvergüenzas allá?", me dijo—, pero la lleva adentro. Y tiene una certeza tranquila: Cuba va a volver a ser lo que fue. Quizás él no lo vea. Pero sus hijos y sus nietos, que nacieron aquí, "llevan también ese cubanismo dentro". Mientras tanto, él y María Elena están trayendo Cuba a Miami, pieza por pieza, documento por documento.</p>
+
+    <div class="timeline">
+      <div class="paso">
+        <p class="fase">1961</p>
+        <h4>La partida</h4>
+        <p>Rey (16) y María Elena (13) salen solos de Cuba por el programa Pedro Pan: él a Washington, ella a Florida City y luego a un rancho de Montana.</p>
+      </div>
+      <div class="paso">
+        <p class="fase">1962 – 1965</p>
+        <h4>Años de trabajo</h4>
+        <p>Rey encadena oficios para juntar el dinero con que sacar a sus padres; lo logra en 1965. María Elena se reúne con los suyos en New Jersey.</p>
+      </div>
+      <div class="paso">
+        <p class="fase">1969 – 1984</p>
+        <h4>El oficio</h4>
+        <p>Taller de joyería propio, 72 joyerías clientes; en 1975 compra la tienda de antigüedades; en 1984 se muda a Miami. María Elena hace carrera en la banca.</p>
+      </div>
+      <div class="paso">
+        <p class="fase">Hace 20+ años</p>
+        <h4>La misión</h4>
+        <p>Rey conoce al padre José Luis Menéndez y se suma al proyecto del centro cultural en Corpus Christi. Se conocen con María Elena en una exposición de arte.</p>
+      </div>
+      <div class="paso">
+        <p class="fase">Hoy</p>
+        <h4>El legado en marcha</h4>
+        <p>La capilla Nuestra Señora de las Mercedes está casi terminada; la colección supera las 160 pinturas coloniales y miles de documentos. Sigue creciendo.</p>
+      </div>
+    </div>
+
+    <div class="que-sigue">
+      <p class="etiqueta">Qué sigue</p>
+      <p>La primera fase —la capilla— está por concluir. La siguiente es la plaza colonial de tres pisos con los museos: el de la guerra hispanoamericana, el de Cuba, el del tabaco y el de la Florida. Rey cuenta, además, con dos pinturas en estudio desde hace más de una década —una posible obra de Rafael y un boceto atribuido a Miguel Ángel— cuya eventual venta, dice, financiaría la construcción. El centro cultural no está abierto al público de forma permanente, pero recibe visitas de escuelas y grupos: la idea es que cada visitante "vea y toque y crea".</p>
+    </div>
+  </div>
+
+  <div class="relacionada" style="max-width:760px;margin:64px auto 20px;padding:0;">
+    <h3>Lectura relacionada</h3>
+    <p class="sub">Tres piezas para seguir explorando</p>
+    <div class="tarjetas">
+      <a class="tarjeta" href="#">
+        <span class="cat">Historias humanas</span>
+        <span class="tit">Pedro Pan: los 14.000 niños que Cuba mandó al exilio</span>
+      </a>
+      <a class="tarjeta" href="#">
+        <span class="cat">Entrevistas</span>
+        <span class="tit">Anatomía de un artículo Elina Contigo</span>
+      </a>
+      <a class="tarjeta" href="#">
+        <span class="cat">Análisis</span>
+        <span class="tit">El exilio cubano que construyó Miami</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="tags">
+    <span>Pedro Pan</span>
+    <span>Exilio cubano</span>
+    <span>Memoria histórica</span>
+    <span>Entrevista</span>
+  </div>
+
+  <div class="bio-autora">
+    <div class="retrato">E</div>
+    <div>
+      <p class="nombre">Elina Villafañe</p>
+      <p class="cargo">Directora editorial</p>
+      <p>Periodista, presentadora e investigadora con más de 12 años de trayectoria y más de 1500 programas. Conduce <em>América Revelada</em> y co-produce <em>Cuba Libre Hoy</em>; en Elina Contigo dirige el criterio editorial del medio.</p>
+    </div>
+  </div>
+
+  <div class="compartir">
+    <span class="etiqueta">Compartir</span>
+    <a href="#">X</a>
+    <a href="#">Facebook</a>
+    <a href="#">WhatsApp</a>
+    <a href="#">Copiar enlace</a>
+  </div>
+</div>
+
+<div class="wrap-ancho">
+  <footer>
+    <div class="marca">Elina <em>Contigo</em></div>
+    <div>© 2026 Elina Contigo · Entrevista realizada en Miami, Florida</div>
+  </footer>
+</div>
+
+</body>
+</html>
